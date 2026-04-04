@@ -1,0 +1,67 @@
+{
+  "model_name": "xgb_final",
+  "model_type": "XGBoostClassifier",
+  "n_features": 25,
+  "feature_cols": [
+    "trust_gap_days",
+    "actual_delivery_days",
+    "promised_delivery_days",
+    "shipping_lag_days",
+    "approval_lag_days",
+    "total_price",
+    "total_freight",
+    "freight_ratio",
+    "item_count",
+    "payment_installments",
+    "payment_value",
+    "product_weight_g",
+    "product_length_cm",
+    "product_height_cm",
+    "product_width_cm",
+    "same_state",
+    "state_risk_score",
+    "category_risk_score",
+    "pay_credit_card",
+    "pay_debit_card",
+    "pay_voucher",
+    "seller_avg_score",
+    "seller_late_rate",
+    "seller_avg_gap",
+    "seller_order_volume"
+  ],
+  "target": "review_score",
+  "classes": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "test_macro_f1": 0.2601,
+  "test_accuracy": 0.4256,
+  "per_class_f1": {
+    "1_star": 0.2859,
+    "2_star": 0.0659,
+    "3_star": 0.1097,
+    "4_star": 0.2446,
+    "5_star": 0.5942
+  },
+  "baseline_macro_f1": 0.1569,
+  "improvement_vs_baseline": 0.1032,
+  "train_date_range": "2016-10-03 to 2018-05-27",
+  "test_date_range": "2018-05-27 to 2018-08-29",
+  "known_limitations": [
+    "2-star class F1 is structurally low (0.066) \u2014 insufficient signal to separate from 1\u2605 and 3\u2605",
+    "Biased states: TO (n=55), SE (n=76) \u2014 data sparsity, not fixable by weighting",
+    "Biased categories: audio, furniture_living_room \u2014 product quality signal missing from dataset",
+    "Temporal distribution shift: test period May-Aug 2018 differs from training period",
+    "Dataset covers 2016-2018 only \u2014 may not generalise to current logistics"
+  ],
+  "novel_contributions": [
+    "seller_avg_score is #1 SHAP feature (0.180) \u2014 no other Olist analysis includes this",
+    "seller_order_volume, seller_late_rate, seller_avg_gap \u2014 4 seller reliability features",
+    "All seller features computed from training data only \u2014 no leakage",
+    "FLAML AutoML independently validated XGBoost as best model family",
+    "Tipping point confirmed at individual level via SHAP dependence plot"
+  ]
+}
