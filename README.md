@@ -30,7 +30,7 @@ Place all 9 CSV files inside it:
 - product_category_name_translation.csv
 
 ### Open the notebook in Google Colab
-Upload `finalCode-Olist.ipynb` to Colab or open directly from Drive.
+Upload `SourceCode.ipynb` to Colab or open directly from Drive.
 
 ### Run the first cell to install dependencies
 ```python
