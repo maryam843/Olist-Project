@@ -51,10 +51,8 @@ After running, the following files are saved to MyDrive/olist_project/model_pack
   encoding_maps.json: State and category target encodings 
   score.py: Scoring script — input order features, output predicted star rating 
 
-## Dashboard
-Built in Power BI using 6 exported CSV files.
-Live dashboard: https://app.powerbi.com/groups/me/reports/a6c52a94-efe4-4964-85d7-a339085926e7/b778fa8adfa82d3a35b1?ctid=b30f4b44-46c6-4070-9997-f87b38d4771c&experience=power-bi
-
+## Dashboard: https://app.powerbi.com/groups/me/reports/a6c52a94-efe4-4964-85d7-a339085926e7/b778fa8adfa82d3a35b1?ctid=b30f4b44-46c6-4070-9997-f87b38d4771c&experience=power-bi
+## PPT: https://canva.link/myjxoxcfv5n6r2q
 
 ## Requirements
 All handled automatically in Colab. No local installation needed.
