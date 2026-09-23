@@ -1,4 +1,4 @@
-# Olist Trust Gap Model
+# Olist Customer Satisfaction
 
 Predicting a customer's review score (1 to 5 stars) before the review is written, from how early or late the order arrived, how reliable the seller has been, and basic order details.
 
