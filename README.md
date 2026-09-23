@@ -2,8 +2,6 @@
 
 Predicting a customer's review score (1 to 5 stars) before the review is written, from how early or late the order arrived, how reliable the seller has been, and basic order details.
 
-Course project for DSAI 4103 Advanced Business Analytics. Author: Maryam Mahaboob.
-
 ## Overview
 
 Olist, a Brazilian e-commerce marketplace, promises a delivery date at checkout. When that promise is broken, customers leave bad reviews. This project predicts the review score once an order is delivered, so likely unhappy customers could be contacted early.
