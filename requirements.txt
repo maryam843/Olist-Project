@@ -1,8 +1,9 @@
+# google.colab (used by the notebook to mount Drive) is only available in Colab; it is not installed here.
 pandas
 numpy
-xgboost
-flaml
+xgboost==3.2.0
+flaml[automl]
 shap
 scikit-learn
-matplotlib
+matplotlib==3.10.0
 seaborn
