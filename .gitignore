@@ -1,0 +1,11 @@
+# Raw and exported data
+*.csv
+
+# Python
+__pycache__/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Pickled objects
+*.pkl
