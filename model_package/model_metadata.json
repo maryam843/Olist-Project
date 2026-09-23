@@ -60,8 +60,9 @@
   "novel_contributions": [
     "seller_avg_score is #1 SHAP feature (0.180) \u2014 no other Olist analysis includes this",
     "seller_order_volume, seller_late_rate, seller_avg_gap \u2014 4 seller reliability features",
-    "All seller features computed from training data only \u2014 no leakage",
+    "Time-based split; encodings built from training data. Known limitations: seller/state/category means on training rows include each row's own label (in-sample encoding), and early stopping used the test set. Fix planned for v2.",
     "FLAML AutoML independently validated XGBoost as best model family",
     "Tipping point confirmed at individual level via SHAP dependence plot"
-  ]
+  ],
+  "note": "This model file comes from a later run than the notebook's saved outputs (best_iteration 68 vs 53; macro F1 0.2601 vs 0.2581)."
 }
