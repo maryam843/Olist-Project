@@ -16,10 +16,12 @@ import pandas as pd
 import numpy as np
 import xgboost as xgb
 import json
+from pathlib import Path
 
-MODEL_PATH    = "model_package/xgb_final_model.json"
-METADATA_PATH = "model_package/model_metadata.json"
-ENCODING_PATH = "model_package/encoding_maps.json"
+PACKAGE_DIR   = Path(__file__).parent
+MODEL_PATH    = PACKAGE_DIR / "xgb_final_model.json"
+METADATA_PATH = PACKAGE_DIR / "model_metadata.json"
+ENCODING_PATH = PACKAGE_DIR / "encoding_maps.json"
 
 
 def load_artifacts():
