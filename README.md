@@ -14,29 +14,11 @@ Olist, a Brazilian e-commerce marketplace, promises a delivery date at checkout.
 - **Features:** 25, including the trust gap (actual minus promised delivery date, in days), four seller reliability features, state and category target encodings, and order details.
 - **Model:** FLAML AutoML on a 15,000-order training sample selected XGBoost. The final model is an XGBoost classifier with balanced class weights.
 
-## Key results
+## What we're trying to find
 
-Numbers are from the notebook's saved outputs on the 19,162 test orders.
-
-| Metric | Model | Baseline: always predict 5 stars |
-|---|---|---|
-| Macro F1 | **0.2581** | 0.1569 |
-| Accuracy | 0.4236 | 0.6455 |
-| Weighted F1 | 0.4580 | |
-| ROC-AUC (macro, one-vs-rest) | 0.5893 | |
-
-Accuracy is below the always-5-stars baseline because the model is weighted to find unhappy customers (macro F1), not to maximise accuracy. Per-class F1 ranges from 0.0606 (2 stars) to 0.5931 (5 stars).
-
-![Delay damage curve](figures/plot3_delay_damage_curve.png)
-
-- **Most orders arrive early.** 92.0% arrived before the promised date and 6.7% arrived late.
-- **Lateness drives scores down.** Average score: early 4.29, 1 to 3 days late 3.29, 4 to 7 days late 2.11, 8 to 14 days late 1.67.
-- **Top SHAP features** (mean absolute SHAP value, 2,000 test orders): seller_avg_score (0.1555), trust_gap_days (0.1089), item_count (0.0691), actual_delivery_days (0.0611), seller_order_volume (0.0548).
-- **Fairness.** TO, RO and SE score more than 0.05 below the overall macro F1 (0.1235, 0.1790, 0.1907), as do 8 of 41 product categories. A reweighting experiment on weak states and categories lowered macro F1 to 0.2571 and widened the state F1 range (0.1657 to 0.2310), so the original model was kept.
-
-**Caveats.** On training rows, the seller, state and category averages include that row's own review score, which likely inflates seller_avg_score's importance. XGBoost early stopping used the test set, so test scores are slightly optimistic.
-
-**Note on the model files.** The files in `model_package/` come from a later re-run of the same notebook. Their test macro F1 is 0.2601, compared with 0.2581 in the notebook's saved outputs.
+- Does a late delivery (actual vs promised date) drive low review scores?
+- Can we predict an unhappy customer's review before it's written, so they can be contacted early?
+- Which factors matter most: delivery timing or seller reliability?
 
 ## Repo structure
 
